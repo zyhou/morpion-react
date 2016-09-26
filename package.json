@@ -1,0 +1,28 @@
+{
+  "name": "morpion",
+  "version": "0.0.1",
+  "description": "jeux du morpion avec React et Flux",
+  "devDependencies": {
+    "node-sass": "latest",
+    "sass-loader": "latest",
+    "smart-css": "latest"
+  },
+  "scripts": {
+    "start-webpack": "webpack-dev-server --hot --inline --colors --progress"
+  },
+  "dependencies": {
+    "babel-core": "latest",
+    "babel-preset-es2015": "latest",
+    "babel-preset-react": "latest",
+    "babel-loader": "latest",
+    "css-loader": "latest",
+    "file-loader": "latest",
+    "react-hot-loader": "latest",
+    "style-loader": "latest",
+    "url-loader": "latest",
+    "flux": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "webpack": "latest"
+  }
+}
