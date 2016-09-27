@@ -1,12 +1,8 @@
 
 import React from 'react';
 import ActionCreator from '../actions/BoardActionCreators';
+import PlayerToken from '../constants/PlayerToken';
 
-var playerToken = {
-  0: '',
-  1: 'x',
-  2: 'o'
-}
 
 let Case = React.createClass({
 
@@ -31,7 +27,7 @@ let Case = React.createClass({
     let styleToken = maCase === 1 ? 'player1' : 'player2'
     return (
       <div onMouseDown={this.onCaseHit} className={"square " + styleToken}>
-        {playerToken[maCase]}
+        {PlayerToken[maCase]}
       </div>
     );
   }
