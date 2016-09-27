@@ -5,16 +5,22 @@ import ActionCreator from '../actions/BoardActionCreators';
 let Header = React.createClass({
 
   onHeaderHit() {
-    if(!BoardStore.gameEnded()) return;
+    if (!BoardStore.gameEnded()) return;
     ActionCreator.restartGame();
   },
 
   render() {
     let titleText = '';
     let subTitleText = 'Clique ou appuie pour rejouer !';
-    if(BoardStore.gameEnded()){
-      titleText = 'Joueur ' + BoardStore.GetGagnant() + ' gagne!';
-    }else{
+    if (BoardStore.gameEnded()) {
+      let nomGagnant = BoardStore.getGagnant()
+      if (nomGagnant === void 0) {
+        titleText = 'Egalité !';
+      }
+      else {
+        titleText = 'Joueur ' + nomGagnant + ' gagne!';
+      }
+    } else {
       titleText = 'Joueur ' + BoardStore.getJoueurCourant() + ' a ton tour.';
       subTitleText = ''
     }

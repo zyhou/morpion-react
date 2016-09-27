@@ -6,7 +6,7 @@ import assign from 'object-assign';
 var CHANGE_EVENT = 'change';
 
 let _data;
-let _currentPlayer;
+let _currentJoueur;
 let _winner;
 let _gameEnded;
 
@@ -21,17 +21,38 @@ function setCase(x, y, playerId) {
 }
 
 function getJoueurCourant() {
-    return _currentPlayer;
+    return _currentJoueur;
 }
 
 function switchJoueurs() {
-    _currentPlayer = _currentPlayer === 1 ? 2 : 1;
+    _currentJoueur = _currentJoueur === 1 ? 2 : 1;
 }
 
 function updateGagnant() {
     if (_winner !== void 0) return;
 
-   // todo fonction de vérification pour voir qui a gagné
+    //Vérification ligne
+    for (let i = 0; i < BOARD_SIZE; i++) {
+        if (_data[i][0] == _data[i][1] && _data[i][0] == _data[i][2] && _data[i][0] != 0) {
+            _winner = _data[i][0];
+        }
+    }
+
+    //Vérification colonne
+    for (let i = 0; i < BOARD_SIZE; i++) {
+        if (_data[0][i] == _data[1][i] && _data[0][i] == _data[2][i] && _data[0][i] != 0) {
+            _winner = _data[0][i];
+        }
+    }
+
+    //Vérification diagonale
+    if (_data[0][0] == _data[1][1] && _data[0][0] == _data[2][2] && _data[0][0] != 0) {
+        _winner = _data[0][0];
+    }
+
+    if (_data[0][2] == _data[1][1] && _data[0][2] == _data[2][0] && _data[2][0] != 0) {
+        _winner = _data[1][1];
+    }
 
     return;
 }
@@ -51,7 +72,7 @@ function updatePartieFinit() {
 }
 
 function reset() {
-    _currentPlayer = 1;
+    _currentJoueur = 1;
     _data = [];
     _gameEnded = false;
     _winner = void 0;
@@ -80,10 +101,10 @@ let BoardStore = assign({}, EventEmitter.prototype, {
     },
 
     gameEnded() {
-        _gameEnded;
+        return _gameEnded;
     },
 
-    GetGagnant() {
+    getGagnant() {
         return _winner;
     },
 
