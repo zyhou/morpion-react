@@ -21,4 +21,4 @@ npm run start-webpack
 
 Suffit d'aller sur : http://localhost:8080
 
-Si vous avez une question sur le site ou autre, n'hésitez pas.
+Si vous avez une question ou autre, n'hésitez pas.
