@@ -29,10 +29,6 @@ module.exports = {
         test: /\.css$/,
         loader: "style-loader!css-loader"
       },
-       {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
-      },
       {
         test: /\.png$/,
         loader: "url-loader?limit=100000"
@@ -45,8 +41,5 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true
-  },
-  sassLoader: {
-    includePaths: [path.resolve(__dirname, "./css/main.css")]
   }
 };

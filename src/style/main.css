@@ -26,14 +26,17 @@ body {
   height  : 400px;
   padding : 5px;
   border  : 1px solid #e4e4e4;
+
+}
+
   
-  .column {
+ .ticTacToe .column {
     display         : flex;
     flex-direction  : column;
     justify-content : space-between;
   }
   
-  .square {
+  .ticTacToe .square {
     display : block;
     width   : 125px;
     height  : 125px;
@@ -45,4 +48,3 @@ body {
     text-align  : center;
     padding     : 20px;
   }
-}
