@@ -12,11 +12,11 @@ let Header = React.createClass({
 
   render() {
     let titleText = '';
-    let subTitleText = 'Clique ou appuie pour rejouer.';
+    let subTitleText = 'Clique pour rejouer.';
     if (BoardStore.gameEnded()) {
       let nomGagnant = BoardStore.getGagnant()
       if (nomGagnant === void 0) {
-        titleText = 'Egalité !';
+        titleText = 'Egalité.';
       }
       else {
         titleText = 'Joueur ' + PlayerToken[nomGagnant].toUpperCase() + ' gagne.';
