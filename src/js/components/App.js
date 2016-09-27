@@ -1,5 +1,6 @@
 import React from 'react';
 import BoardStore from '../stores/BoardStore';
+import Header from './Header.js';
 import Case from './Case.js';
 import Colonne from './Colonne.js';
 
@@ -33,8 +34,11 @@ let App = React.createClass({
         }
 
         return (
-            <div className="ticTacToe">
-                {children}
+            <div>
+                <Header />
+                <div className="ticTacToe">
+                    {children}
+                </div>
             </div>
         );
     }

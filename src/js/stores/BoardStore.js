@@ -8,25 +8,46 @@ var CHANGE_EVENT = 'change';
 let _data;
 let _currentPlayer;
 let _winner;
-let _winnerTiles;
 let _gameEnded;
 
 const BOARD_SIZE = 3;
 
 function isCasePrise(x, y) {
-  return _data[x][y] !== 0;
+    return _data[x][y] !== 0;
 }
 
 function setCase(x, y, playerId) {
-  _data[x][y] = playerId;
+    _data[x][y] = playerId;
 }
 
 function getJoueurCourant() {
-  return _currentPlayer;
+    return _currentPlayer;
 }
 
 function switchJoueurs() {
-  _currentPlayer = _currentPlayer === 1 ? 2 : 1;
+    _currentPlayer = _currentPlayer === 1 ? 2 : 1;
+}
+
+function updateGagnant() {
+    if (_winner !== void 0) return;
+
+   // todo fonction de vérification pour voir qui a gagné
+
+    return;
+}
+
+function hasCasesDisponible() {
+    for (let x = 0; x < BOARD_SIZE; x++) {
+        for (let y = 0; y < BOARD_SIZE; y++) {
+            if (_data[x][y] === 0) return true;
+        }
+    }
+}
+
+function updatePartieFinit() {
+    if (_winner !== void 0 || !hasCasesDisponible()) {
+        _gameEnded = true;
+    }
 }
 
 function reset() {
@@ -34,7 +55,6 @@ function reset() {
     _data = [];
     _gameEnded = false;
     _winner = void 0;
-    _winnerTiles = [];
     for (let x = 0; x < BOARD_SIZE; x++) {
         _data[x] = [];
         for (let y = 0; y < BOARD_SIZE; y++) {
@@ -53,6 +73,18 @@ let BoardStore = assign({}, EventEmitter.prototype, {
 
     getPlateauTaille() {
         return BOARD_SIZE;
+    },
+
+    getJoueurCourant() {
+        return getJoueurCourant();
+    },
+
+    gameEnded() {
+        _gameEnded;
+    },
+
+    GetGagnant() {
+        return _winner;
     },
 
     emitChange: function () {
@@ -74,11 +106,15 @@ AppDispatcher.register(function (action) {
     switch (action.actionType) {
         case Constants.ActionTypes.PLAY_POSITION:
             let {x, y} = action.pos;
-            
-            if(isCasePrise(x, y)) return;
-            
+
+            if (BoardStore.gameEnded()) return;
+            if (isCasePrise(x, y)) return;
+
             setCase(x, y, getJoueurCourant());
             switchJoueurs()
+
+            updateGagnant();
+            updatePartieFinit();
 
             BoardStore.emitChange();
             break;
