@@ -22,7 +22,7 @@ let App = React.createClass({
         // Construction du plateau de jeu
         let children = []
         let plateauTaille = BoardStore.getPlateauTaille() 
-        let cases = [] = BoardStore.getCases() 
+        let cases = BoardStore.getCases() 
 
         for (let x = 0; x < plateauTaille; x++) {
             let rowChildren = []

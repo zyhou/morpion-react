@@ -13,6 +13,10 @@ let _gameEnded;
 
 const BOARD_SIZE = 3;
 
+function isCasePrise(x, y) {
+  return _data[x][y] !== 0;
+}
+
 function setCase(x, y, playerId) {
   _data[x][y] = playerId;
 }
@@ -70,6 +74,8 @@ AppDispatcher.register(function (action) {
     switch (action.actionType) {
         case Constants.ActionTypes.PLAY_POSITION:
             let {x, y} = action.pos;
+            
+            if(isCasePrise(x, y)) return;
             
             setCase(x, y, getJoueurCourant());
             switchJoueurs()
