@@ -1,0 +1,33 @@
+{
+    "plugins": [
+        [
+            "dynamic-import-webpack"
+        ],
+        [
+            "syntax-dynamic-import"
+        ],
+        [
+            "transform-runtime",
+            {
+                "helpers": false,
+                "polyfill": false,
+                "regenerator": true,
+                "moduleName": "babel-runtime"
+            }
+        ]
+    ],
+    "presets": [
+        "react",
+        [
+            "env",
+            {
+                "targets": {
+                    "browsers": [
+                        "last 1 version",
+                        "ie >= 11"
+                    ]
+                }
+            }
+        ]
+    ]
+}
