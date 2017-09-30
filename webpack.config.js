@@ -1,5 +1,6 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -11,6 +12,7 @@ const plugins = [
         title: 'Morpion React',
         template: path.resolve(__dirname, 'src/index.html'),
     }),
+    new ExtractTextPlugin('styles.css'),
     new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         minChunks: Infinity,
@@ -38,7 +40,7 @@ module.exports = {
     },
     resolve: {
         modules: ['node_modules', 'src'],
-        extensions: ['*', '.js', '.json'],
+        extensions: ['*', '.js', '.json', '.css'],
     },
     module: {
         rules: [
@@ -48,8 +50,15 @@ module.exports = {
                 loader: 'babel-loader',
                 query: { compact: false },
             },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
+            },
         ],
     },
     plugins,
     devtool: 'source-map',
-}
+};

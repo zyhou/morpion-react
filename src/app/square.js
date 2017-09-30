@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Square = ({ value }) => <button className="square">{value}</button>;
+const Square = ({ value }) => <div className="square">{value}</div>;
 
 Square.propTypes = {
     value: PropTypes.string.isRequired,

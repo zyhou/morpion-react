@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    flex-wrap: wrap;
+    align-content: center;
+    font-family: "Open Sans", sans-serif;
+    background: #14bdac;
+}
+
+.board-row {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.square {
+    display: block;
+    width: 125px;
+    height: 125px;
+    color: #e4e4e4;
+    font-size: 5em;
+    font-weight: 100;
+    text-align: center;
+    padding: 20px;
+}
+
+.board-row:nth-child(1) > div {
+    border-bottom: 5px solid rgba(13, 161, 146, 0.5);
+}
+
+.board-row:nth-child(2) > div {
+    border-top: 5px solid rgba(13, 161, 146, 0.5);
+    border-bottom: 5px solid rgba(13, 161, 146, 0.5);
+}
+
+.board-row:nth-child(3) > div {
+    border-top: 5px solid rgba(13, 161, 146, 0.5);
+}
+
+.board-row > div:nth-child(1) {
+    border-right: 5px solid rgba(13, 161, 146, 0.5);
+}
+
+.board-row > div:nth-child(2) {
+    border-right: 5px solid rgba(13, 161, 146, 0.5);
+    border-left: 5px solid rgba(13, 161, 146, 0.5);
+}
+
+.board-row > div:nth-child(3) {
+    border-left: 5px solid rgba(13, 161, 146, 0.5);
+}
+
+.player1 {
+    color: rgb(84, 84, 84);
+}
+
+.player2 {
+    color: rgb(242, 235, 211);
+}
+
+.game-info {
+    width: auto;
+    height: 62px;
+    color: #f8f8f8;
+    padding: 0 10px;
+    transition: 0.3s all;
+}
+
+.title {
+    font-size: 22px;
+    line-height: 22px;
+    display: block;
+    transition: 0.3s all;
+    padding-top: 10px;
+}
+
+.sub-title {
+    transition: 0.3s all;
+    font-size: 12px;
+}
