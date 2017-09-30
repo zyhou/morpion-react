@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import MainMenu from "./MainMenu";
-import Board from "./Board";
+import MainMenu from './mainMenu';
+import Board from './board';
 
 class App extends React.Component {
     state = {
-        squares: Array(9).fill(null)
+        squares: Array(9).fill(null),
     };
 
     render() {

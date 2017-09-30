@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const MainMenu = () => <h1>Morpion React App</h1>;
 
