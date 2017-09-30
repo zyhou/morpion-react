@@ -1,11 +1,8 @@
 {
     "plugins": [
-        [
-            "dynamic-import-webpack"
-        ],
-        [
-            "syntax-dynamic-import"
-        ],
+        ["dynamic-import-webpack"],
+        ["syntax-dynamic-import"],
+        ["transform-class-properties"],
         [
             "transform-runtime",
             {
@@ -22,10 +19,7 @@
             "env",
             {
                 "targets": {
-                    "browsers": [
-                        "last 1 version",
-                        "ie >= 11"
-                    ]
+                    "browsers": ["last 1 version", "ie >= 11"]
                 }
             }
         ]

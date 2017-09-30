@@ -1,4 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<h1>Morpion React App</h1>, document.getElementById('root'));
+import App from "./app";
+
+ReactDOM.render(<App />, document.getElementById("root"));
