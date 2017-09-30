@@ -9,3 +9,4 @@ Build the project `make build` and launch the web server `make dev`
 Step to build this project :
 
 - [Hello world with React + webpack + babel.](https://github.com/zyhou/morpion-react/releases/tag/1.0)
+- [Morpion design with React + webpack + babel.](https://github.com/zyhou/morpion-react/releases/tag/2.0)
