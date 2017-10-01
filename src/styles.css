@@ -34,6 +34,7 @@ body {
     font-weight: 100;
     text-align: center;
     padding: 20px;
+    cursor: pointer;
 }
 
 .board-row:nth-child(1) > div {
