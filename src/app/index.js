@@ -6,23 +6,25 @@ import MainMenu from './mainMenu';
 import Board from './board';
 import { resetGame, addMove } from '../actions';
 
-export const App = ({ squares }) => (
+export const App = ({ squares, currentPlayer, onSetSquare }) => (
     <div className="game">
         <div className="game-info">
             <MainMenu />
         </div>
         <div className="game-board">
-            <Board squares={squares} />
+            <Board squares={squares} onClick={i => onSetSquare(i, currentPlayer)} />
         </div>
     </div>
 );
 
 App.propTypes = {
     squares: PropTypes.arrayOf(PropTypes.string).isRequired,
+    currentPlayer: PropTypes.string.isRequired,
+    onSetSquare: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-    player: state.player,
+    currentPlayer: state.player,
     squares: state.squares,
 });
 
