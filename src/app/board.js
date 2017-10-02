@@ -3,30 +3,38 @@ import PropTypes from 'prop-types';
 
 import Square from './square';
 
-const renderSquare = value => <Square value={value} />;
 
-const Board = ({ squares }) => (
-    <div>
-        <div className="board-row">
-            {renderSquare(squares[0])}
-            {renderSquare(squares[1])}
-            {renderSquare(squares[2])}
-        </div>
-        <div className="board-row">
-            {renderSquare(squares[3])}
-            {renderSquare(squares[4])}
-            {renderSquare(squares[5])}
-        </div>
-        <div className="board-row">
-            {renderSquare(squares[6])}
-            {renderSquare(squares[7])}
-            {renderSquare(squares[8])}
-        </div>
-    </div>
-);
+class Board extends React.Component {
+    renderSquare(i) {
+        return (<Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />);
+    }
+
+    render() {
+        return (
+            <div>
+                <div className="board-row">
+                    {this.renderSquare(0)}
+                    {this.renderSquare(1)}
+                    {this.renderSquare(2)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(3)}
+                    {this.renderSquare(4)}
+                    {this.renderSquare(5)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(6)}
+                    {this.renderSquare(7)}
+                    {this.renderSquare(8)}
+                </div>
+            </div>
+        );
+    }
+}
 
 Board.propTypes = {
     squares: PropTypes.arrayOf(PropTypes.number).isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default Board;
