@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 
-import squares from './squares';
-import player from './player';
+import game from './game';
 
-const TicTacToeApp = combineReducers({ squares, player });
+const TicTacToeApp = combineReducers({ game });
 export default TicTacToeApp;

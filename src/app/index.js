@@ -24,8 +24,8 @@ App.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    currentPlayer: state.player,
-    squares: state.squares,
+    currentPlayer: state.game.player,
+    squares: state.game.board,
 });
 
 const mapDispatchToProps = dispatch => ({
