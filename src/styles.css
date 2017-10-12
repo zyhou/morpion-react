@@ -81,14 +81,6 @@ body {
 }
 
 .title {
-    font-size: 22px;
-    line-height: 22px;
-    display: block;
     transition: 0.3s all;
-    padding-top: 10px;
-}
-
-.sub-title {
-    transition: 0.3s all;
-    font-size: 12px;
+    text-align: center;
 }

@@ -1,5 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const MainMenu = () => <h1>Morpion React App</h1>;
+const MainMenu = ({ text }) => <h1 className="title">{text}</h1>;
+
+MainMenu.propTypes = {
+    text: PropTypes.string.isRequired,
+};
 
 export default MainMenu;

@@ -3,6 +3,7 @@ import { getInitBoard, addMove } from '../game';
 const initGame = {
     board: getInitBoard(),
     player: 'X',
+    message: 'Morpion React App',
 };
 
 const game = (state = initGame, action) => {
@@ -17,6 +18,7 @@ const game = (state = initGame, action) => {
                 ...state,
                 player: moveData.player,
                 board: moveData.board,
+                message: moveData.message,
             };
         }
         case 'RESET':

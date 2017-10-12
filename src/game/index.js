@@ -20,6 +20,8 @@ export const getWinner = (board) => {
     return null;
 };
 
+export const isTie = board => board.every(el => el !== null);
+
 export const isValidMove = (board, square) => {
     // Invalid move when square is not available
     if (board[square]) return false;
@@ -38,6 +40,16 @@ export const setMove = (board, player, index) => (
     board.map((item, square) => (square === index ? player : item))
 );
 
+export const getStatusMessage = (board, player) => {
+    if (isTie(board)) return 'It is a tie!';
+
+    const winner = getWinner(board);
+    if (winner) {
+        return `${winner} has won the game!`;
+    }
+    return `Player ${player}`;
+};
+
 export const addMove = (board, player, square) => {
     if (!isValidMove(board, square)) {
         return false;
@@ -45,8 +57,9 @@ export const addMove = (board, player, square) => {
 
     const newBoard = setMove(board, player, square);
     const newPlayer = switchPlayer(player);
+    const message = getStatusMessage(newBoard, player);
 
-    return { board: newBoard, player: newPlayer };
+    return { board: newBoard, player: newPlayer, message };
 };
 
 export const getInitBoard = () => (

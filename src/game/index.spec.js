@@ -1,4 +1,10 @@
-import { getInitBoard, switchPlayer, isValidMove, setMove } from './index';
+import {
+    getInitBoard,
+    switchPlayer,
+    isValidMove,
+    setMove,
+    isTie,
+} from './index';
 
 describe('tic tac toe logic', () => {
     test('getInitBoard should return array of 9 null value', () => {
@@ -41,6 +47,24 @@ describe('tic tac toe logic', () => {
             const board = getInitBoard();
             const newBoard = setMove(board, 'X', 0);
             expect(newBoard).toContain('X');
+        });
+    });
+
+    describe('isTie', () => {
+        test('empty board should return false', () => {
+            const board = getInitBoard();
+            expect(isTie(board)).toBe(false);
+        });
+
+        test('full board should return true', () => {
+            const board = Array(9).fill('X');
+            expect(isTie(board)).toBe(true);
+        });
+
+        test('random board should return false', () => {
+            const board = getInitBoard();
+            board[0] = 'X';
+            expect(isTie(board)).toBe(false);
         });
     });
 });
