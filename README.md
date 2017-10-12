@@ -11,3 +11,6 @@ Step to build this project :
 
 - [Hello world with React + webpack + babel.](https://github.com/zyhou/morpion-react/releases/tag/1.0)
 - [Morpion design with React + webpack + babel.](https://github.com/zyhou/morpion-react/releases/tag/2.0)
+- [Morpion logic + other things](https://github.com/zyhou/morpion-react/releases/tag/3.0)
+
+![board.PNG](https://raw.githubusercontent.com/zyhou/morpion-react/master/assets/board.PNG)
