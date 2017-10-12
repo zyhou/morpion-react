@@ -1,26 +1,24 @@
-const board = Array(9).fill(null);
+import { getInitBoard, addMove } from '../game';
 
 const initGame = {
-    board,
+    board: getInitBoard(),
     player: 'X',
 };
 
-const switchPlayer = player => (
-    player === 'X' ? 'O' : 'X'
-);
-
-const setMove = (stateBoard, player, index) => (
-    stateBoard.map((item, square) => (square === index ? player : item))
-);
-
 const game = (state = initGame, action) => {
     switch (action.type) {
-        case 'ADD_MOVE':
+        case 'ADD_MOVE': {
+            const moveData = addMove(state.board, action.player, action.square);
+            if (!moveData) {
+                return { ...state };
+            }
+
             return {
                 ...state,
-                player: switchPlayer(action.player),
-                board: setMove(state.board, action.player, action.square),
+                player: moveData.player,
+                board: moveData.board,
             };
+        }
         case 'RESET':
             return initGame;
         default:
