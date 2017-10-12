@@ -13,4 +13,4 @@ Step to build this project :
 - [Morpion design with React + webpack + babel.](https://github.com/zyhou/morpion-react/releases/tag/2.0)
 - [Morpion logic + other things](https://github.com/zyhou/morpion-react/releases/tag/3.0)
 
-![Won-text](https://raw.githubusercontent.com/zyhou/morpion-react/master/assets/Won-text)
+![Won-text](https://raw.githubusercontent.com/zyhou/morpion-react/master/assets/Won-text.PNG)
