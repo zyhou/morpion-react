@@ -3,8 +3,9 @@
 Morpion design with React + webpack + babel.
 
 Use `make install` to install the project.
-Build the project `make build` and launch the web server `make dev`
+Build the project `make build` and launch the web server `make dev`.
 
+If you want to contribute, check if test passing always pass with `make test`.
 
 Step to build this project :
 

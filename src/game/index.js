@@ -1,5 +1,5 @@
 
-const getWinner = (board) => {
+export const getWinner = (board) => {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -20,7 +20,7 @@ const getWinner = (board) => {
     return null;
 };
 
-const isValidMove = (board, square) => {
+export const isValidMove = (board, square) => {
     // Invalid move when square is not available
     if (board[square]) return false;
 
@@ -30,11 +30,11 @@ const isValidMove = (board, square) => {
     return true;
 };
 
-const switchPlayer = player => (
+export const switchPlayer = player => (
     player === 'X' ? 'O' : 'X'
 );
 
-const setMove = (board, player, index) => (
+export const setMove = (board, player, index) => (
     board.map((item, square) => (square === index ? player : item))
 );
 
