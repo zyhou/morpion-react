@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Square = ({ value, onClick }) => (
-    <div className="square" onClick={onClick} role="button" tabIndex={value}>
+const Square = ({ value, onClick, tabIndex }) => (
+    <div
+        className={`square player${value}`}
+        onClick={onClick}
+        role="button"
+        tabIndex={tabIndex}
+    >
         {value}
     </div>
 );
@@ -10,6 +15,7 @@ const Square = ({ value, onClick }) => (
 Square.propTypes = {
     value: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    tabIndex: PropTypes.number.isRequired,
 };
 
 export default Square;

@@ -35,6 +35,7 @@ body {
     text-align: center;
     padding: 20px;
     cursor: pointer;
+    outline: none;
 }
 
 .board-row:nth-child(1) > div {
@@ -63,11 +64,11 @@ body {
     border-left: 5px solid rgba(13, 161, 146, 0.5);
 }
 
-.player1 {
+.playerX {
     color: rgb(84, 84, 84);
 }
 
-.player2 {
+.playerO {
     color: rgb(242, 235, 211);
 }
 
