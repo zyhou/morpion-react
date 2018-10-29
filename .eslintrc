@@ -8,7 +8,9 @@
   "env": {
     "es6": true
   },
+  "plugins": ["react-hooks"],
   "rules": {
-    "prefer-const": "error"
+    "prefer-const": "error",
+    "react-hooks/rules-of-hooks": "error"
   }
 }
