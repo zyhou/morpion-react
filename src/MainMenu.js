@@ -10,10 +10,8 @@ MainMenuWithoutContext.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export const MainMenu = () => {
-  return (
-    <GameConsumer>
-      {({ message }) => <MainMenuWithoutContext text={message} />}
-    </GameConsumer>
-  );
-};
+export const MainMenu = () => (
+  <GameConsumer>
+    {({ message }) => <MainMenuWithoutContext text={message} />}
+  </GameConsumer>
+);

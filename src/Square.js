@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { GameConsumer } from './App';
 
-const Square = ({ value, onClick, tabIndex }) => (
+export const SquareWithoutContext = ({ value, onClick, tabIndex }) => (
   <div
     className={`square player${value}`}
-    onClick={onClick}
+    onClick={() => onClick(tabIndex)}
     role="button"
     tabIndex={tabIndex}
   >
@@ -12,10 +13,14 @@ const Square = ({ value, onClick, tabIndex }) => (
   </div>
 );
 
-Square.propTypes = {
-  value: PropTypes.string.isRequired,
+SquareWithoutContext.propTypes = {
+  value: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   tabIndex: PropTypes.number.isRequired,
 };
 
-export default Square;
+export const Square = props => (
+  <GameConsumer>
+    {({ onClick }) => <SquareWithoutContext {...props} onClick={onClick} />}
+  </GameConsumer>
+);
