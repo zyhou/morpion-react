@@ -37,12 +37,11 @@ export const setMove = (board, player, index) =>
   board.map((item, square) => (square === index ? player : item));
 
 export const getStatusMessage = (board, player) => {
+  const winner = getWinner(board);
+  if (winner) return `${winner} has won the game!`;
+
   if (isTie(board)) return 'It is a tie!';
 
-  const winner = getWinner(board);
-  if (winner) {
-    return `${winner} has won the game!`;
-  }
   return `Player ${player}`;
 };
 
