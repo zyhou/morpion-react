@@ -1,14 +1,28 @@
 {
-  "extends": ["prettier"],
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "env": {
-    "es6": true
-  },
-  "rules": {
-    "prefer-const": "error"
-  }
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "globals": {
+        "document": true
+    },
+    "plugins": ["prettier", "react"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:react/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "import/no-named-as-default": "off",
+        "no-console": ["error", { "allow": ["warn", "error"] }]
+    }
 }
