@@ -8,19 +8,21 @@ const Board = () => {
     });
     const { squares, currentPlayer } = state;
 
-    const renderSquare = index => (
+    const selectSquare = (square) => dispatch({ type: 'SELECT_SQUARE', square });
+
+    const status = getStatus(squares, currentPlayer);
+
+    const renderSquare = (index) => (
         <div
             className={`square player${squares[index]}`}
             onClick={() => selectSquare(index)}
+            onKeyDown={() => selectSquare(index)}
             role="button"
+            tabIndex={0}
         >
             {squares[index]}
         </div>
     );
-
-    const selectSquare = square => dispatch({ type: 'SELECT_SQUARE', square });
-
-    const status = getStatus(squares, currentPlayer);
 
     return (
         <React.Fragment>
