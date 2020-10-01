@@ -6,7 +6,8 @@
     "scripts": {
         "start": "webpack-dev-server --open --mode development",
         "build": "webpack --mode production",
-        "format": "prettier-eslint --write \"**/*.+(js|md)\""
+        "lint": "eslint .",
+        "format": "prettier --write --check \"**/*.+(js|md|json)\""
     },
     "repository": {
         "type": "git",
@@ -23,18 +24,15 @@
         "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/preset-env": "^7.6.2",
         "@babel/preset-react": "^7.0.0",
-        "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
         "css-loader": "^3.2.0",
-        "eslint": "^6.5.1",
-        "eslint-config-prettier": "^6.3.0",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-prettier": "^3.1.1",
-        "eslint-plugin-react": "^7.15.0",
+        "eslint": "^7.10.0",
+        "eslint-config-zyhou": "^0.0.7",
         "html-loader": "^0.5.5",
         "html-webpack-plugin": "^3.2.0",
-        "prettier": "^1.18.2",
-        "prettier-eslint-cli": "^5.0.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.4.0",
+        "prettier": "^2.1.2",
         "style-loader": "^1.0.0",
         "webpack": "^4.41.0",
         "webpack-cli": "^3.3.9",
@@ -45,5 +43,14 @@
         "prop-types": "^15.7.2",
         "react": "^16.10.1",
         "react-dom": "^16.10.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": "eslint",
+        "*.{js,json,md}": "prettier --write"
     }
 }
