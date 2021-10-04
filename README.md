@@ -1,6 +1,6 @@
 # Morpion avec React - Tic tac toe with React
 
-Morpion design with React + webpack 4 + babel 7.
+Morpion design with React + Vite.
 
 Demo : [https://morpion-react.netlify.com/](https://morpion-react.netlify.com/)
 
